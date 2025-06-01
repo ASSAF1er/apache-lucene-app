@@ -1,0 +1,384 @@
+@prefix : <http://www.semanticweb.org/assaf/ontologies/food/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://www.semanticweb.org/assaf/ontologies/food/> .
+
+<http://www.semanticweb.org/assaf/ontologies/food> rdf:type owl:Ontology ;
+                                                    owl:versionIRI <http://www.semanticweb.org/assaf/ontologies/food/1.0.0> .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://www.semanticweb.org/assaf/ontologies/food#+belongto
+<http://www.semanticweb.org/assaf/ontologies/food#+belongto> rdf:type owl:ObjectProperty ;
+                                                             rdfs:domain :Food ;
+                                                             rdfs:range :DelocalizedArea .
+
+
+###  http://www.semanticweb.org/assaf/ontologies/food#+composedof
+<http://www.semanticweb.org/assaf/ontologies/food#+composedof> rdf:type owl:ObjectProperty ;
+                                                               rdfs:domain :Buffet ,
+                                                                           :Dish ,
+                                                                           :Food ,
+                                                                           :FoodGroup ;
+                                                               rdfs:range :Dish ,
+                                                                          :Food ,
+                                                                          :FoodComponent .
+
+
+###  http://www.semanticweb.org/assaf/ontologies/food#+hasrecipe
+<http://www.semanticweb.org/assaf/ontologies/food#+hasrecipe> rdf:type owl:ObjectProperty ;
+                                                              rdfs:domain :Food ;
+                                                              rdfs:range :Recipe .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://www.semanticweb.org/assaf/ontologies/food#Name
+:Name rdf:type owl:DatatypeProperty ;
+      rdfs:domain :Food ;
+      rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/assaf/ontologies/food#imageUrl
+:imageUrl rdf:type owl:DatatypeProperty ;
+          rdfs:domain :Food ;
+          rdfs:range xsd:anyURI .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://www.semanticweb.org/assaf/ontologies/food/AlcoholicBeverage
+:AlcoholicBeverage rdf:type owl:Class ;
+                   rdfs:subClassOf :Beverage .
+
+
+###  http://www.semanticweb.org/assaf/ontologies/food/Beverage
+:Beverage rdf:type owl:Class ;
+          rdfs:subClassOf :Food .
+
+
+###  http://www.semanticweb.org/assaf/ontologies/food/Buffet
+:Buffet rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/assaf/ontologies/food/Coffee
+:Coffee rdf:type owl:Class ;
+        rdfs:subClassOf :Beverage .
+
+
+###  http://www.semanticweb.org/assaf/ontologies/food/Complement
+:Complement rdf:type owl:Class ;
+            rdfs:subClassOf :Food .
+
+
+###  http://www.semanticweb.org/assaf/ontologies/food/CookedFood
+:CookedFood rdf:type owl:Class ;
+            rdfs:subClassOf :Food .
+
+
+###  http://www.semanticweb.org/assaf/ontologies/food/DelocalizedArea
+:DelocalizedArea rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/assaf/ontologies/food/Dish
+:Dish rdf:type owl:Class ;
+      rdfs:subClassOf :Food .
+
+
+###  http://www.semanticweb.org/assaf/ontologies/food/Fiber
+:Fiber rdf:type owl:Class ;
+       rdfs:subClassOf :FoodComponent .
+
+
+###  http://www.semanticweb.org/assaf/ontologies/food/Food
+:Food rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/assaf/ontologies/food/FoodAdditive
+:FoodAdditive rdf:type owl:Class ;
+              rdfs:subClassOf :FoodComponent .
+
+
+###  http://www.semanticweb.org/assaf/ontologies/food/FoodComponent
+:FoodComponent rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/assaf/ontologies/food/FoodGroup
+:FoodGroup rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/assaf/ontologies/food/FoodWithComplement
+:FoodWithComplement rdf:type owl:Class ;
+                    rdfs:subClassOf :Food .
+
+
+###  http://www.semanticweb.org/assaf/ontologies/food/Fruit
+:Fruit rdf:type owl:Class ;
+       rdfs:subClassOf :RawFood .
+
+
+###  http://www.semanticweb.org/assaf/ontologies/food/Ingredient
+:Ingredient rdf:type owl:Class ;
+            rdfs:subClassOf :Food .
+
+
+###  http://www.semanticweb.org/assaf/ontologies/food/MacroNutrient
+:MacroNutrient rdf:type owl:Class ;
+               rdfs:subClassOf :Nutrient .
+
+
+###  http://www.semanticweb.org/assaf/ontologies/food/MainFood
+:MainFood rdf:type owl:Class ;
+          rdfs:subClassOf :Food .
+
+
+###  http://www.semanticweb.org/assaf/ontologies/food/ManufacturedBeverage
+:ManufacturedBeverage rdf:type owl:Class ;
+                      rdfs:subClassOf :Beverage .
+
+
+###  http://www.semanticweb.org/assaf/ontologies/food/ManufacturedFood
+:ManufacturedFood rdf:type owl:Class ;
+                  rdfs:subClassOf :Food .
+
+
+###  http://www.semanticweb.org/assaf/ontologies/food/MicroNutrient
+:MicroNutrient rdf:type owl:Class ;
+               rdfs:subClassOf :Nutrient .
+
+
+###  http://www.semanticweb.org/assaf/ontologies/food/NaturalBeverage
+:NaturalBeverage rdf:type owl:Class ;
+                 rdfs:subClassOf :Beverage .
+
+
+###  http://www.semanticweb.org/assaf/ontologies/food/Nutrient
+:Nutrient rdf:type owl:Class ;
+          rdfs:subClassOf :FoodComponent .
+
+
+###  http://www.semanticweb.org/assaf/ontologies/food/RawFood
+:RawFood rdf:type owl:Class ;
+         rdfs:subClassOf :Food .
+
+
+###  http://www.semanticweb.org/assaf/ontologies/food/Recipe
+:Recipe rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/assaf/ontologies/food/SecondaryMetbolite
+:SecondaryMetbolite rdf:type owl:Class ;
+                    rdfs:subClassOf :FoodAdditive .
+
+
+###  http://www.semanticweb.org/assaf/ontologies/food/Tea
+:Tea rdf:type owl:Class ;
+     rdfs:subClassOf :Beverage .
+
+
+###  http://www.semanticweb.org/assaf/ontologies/food/Tisane
+:Tisane rdf:type owl:Class ;
+        rdfs:subClassOf :Beverage .
+
+
+###  http://www.semanticweb.org/assaf/ontologies/food/Vegetables
+:Vegetables rdf:type owl:Class ;
+            rdfs:subClassOf :RawFood .
+
+
+###  http://www.semanticweb.org/assaf/ontologies/food/Water
+:Water rdf:type owl:Class ;
+       rdfs:subClassOf :FoodComponent .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://www.semanticweb.org/assaf/ontologies/food#Semolina
+:Semolina rdf:type owl:NamedIndividual ,
+                   :Complement ;
+          :Name "Semolina" ;
+          :imageUrl "/home/beral/Bureau/INFO M1/semantic_web/images/Semolina/56.jpeg"^^xsd:anyURI .
+
+
+###  http://www.semanticweb.org/assaf/ontologies/food#Sorghum
+:Sorghum rdf:type owl:NamedIndividual ,
+                  :Complement ;
+         :Name "Sorghum" ;
+         :imageUrl "/home/beral/Bureau/INFO M1/semantic_web/images/Sorghum/15.jpeg"^^xsd:anyURI .
+
+
+###  http://www.semanticweb.org/assaf/ontologies/food#Tea
+:Tea rdf:type owl:NamedIndividual ,
+              :Tea ;
+     :Name "Tea" ;
+     :imageUrl "/home/beral/Bureau/INFO M1/semantic_web/images/Tea/30.jpeg"^^xsd:anyURI .
+
+
+###  http://www.semanticweb.org/assaf/ontologies/food#Tomato_ketchup
+:Tomato_ketchup rdf:type owl:NamedIndividual ,
+                         :ManufacturedFood ;
+                :Name "Tomato ketchup" ;
+                :imageUrl "/home/beral/Bureau/INFO M1/semantic_web/images/Tomato ketchup/14.jpeg"^^xsd:anyURI .
+
+
+###  http://www.semanticweb.org/assaf/ontologies/food#Mixed_porridge_flour_(maize)
+<http://www.semanticweb.org/assaf/ontologies/food#Mixed_porridge_flour_(maize)> rdf:type owl:NamedIndividual ,
+                                                                                         :MainFood ;
+                                                                                :Name """)
+Mixed porridge flour (maize)""" ;
+                                                                                :imageUrl "/home/beral/Bureau/INFO M1/semantic_web/images/Mixed porridge flour (maize)/1.jpeg" .
+
+
+###  http://www.semanticweb.org/assaf/ontologies/food#Mixed_porridge_flour_(maize_and_oil)
+<http://www.semanticweb.org/assaf/ontologies/food#Mixed_porridge_flour_(maize_and_oil)> rdf:type owl:NamedIndividual ,
+                                                                                                 :MainFood ;
+                                                                                        :Name "Mixed porridge flour (maize and oil)" ;
+                                                                                        :imageUrl "/home/beral/Bureau/INFO M1/semantic_web/images/Mixed porridge flour (maize and oil)/26.jpeg" .
+
+
+###  http://www.semanticweb.org/assaf/ontologies/food#Mixed_porridge_flour_(no_maize)
+<http://www.semanticweb.org/assaf/ontologies/food#Mixed_porridge_flour_(no_maize)> rdf:type owl:NamedIndividual ,
+                                                                                            :MainFood ;
+                                                                                   :Name "Mixed porridge flour (no maize)" ;
+                                                                                   :imageUrl "/home/beral/Bureau/INFO M1/semantic_web/images/Mixed porridge flour (no maize)/1.jpeg"^^xsd:anyURI .
+
+
+###  http://www.semanticweb.org/assaf/ontologies/food#Porridge,_fermented
+<http://www.semanticweb.org/assaf/ontologies/food#Porridge,_fermented> rdf:type owl:NamedIndividual ,
+                                                                                :MainFood ;
+                                                                       :Name "Porridge, fermented" ;
+                                                                       :imageUrl "/home/beral/Bureau/INFO M1/semantic_web/images/Porridge, fermented/35.jpeg"^^xsd:anyURI .
+
+
+###  http://www.semanticweb.org/assaf/ontologies/food#Rice,_fried_and_boiled
+<http://www.semanticweb.org/assaf/ontologies/food#Rice,_fried_and_boiled> rdf:type owl:NamedIndividual ,
+                                                                                   :CookedFood ;
+                                                                          :Name "Rice, fried and boiled" ;
+                                                                          :imageUrl "/home/beral/Bureau/INFO M1/semantic_web/images/Rice, fried and boiled/16.jpeg"^^xsd:anyURI .
+
+
+###  http://www.semanticweb.org/assaf/ontologies/food#Rice,_flour,_local
+<http://www.semanticweb.org/assaf/ontologies/food#Rice,_flour,_local> rdf:type owl:NamedIndividual ,
+                                                                               :Complement ;
+                                                                      :Name "Rice, flour, local" ;
+                                                                      :imageUrl "/home/beral/Bureau/INFO M1/semantic_web/images/Rice, flour, local/1.jpeg"^^xsd:anyURI .
+
+
+###  http://www.semanticweb.org/assaf/ontologies/food#Rice,_white,_grain,_raw
+<http://www.semanticweb.org/assaf/ontologies/food#Rice,_white,_grain,_raw> rdf:type owl:NamedIndividual ,
+                                                                                    :Complement ;
+                                                                           :Name "Rice, white, grain, raw" ;
+                                                                           :imageUrl "/home/beral/Bureau/INFO M1/semantic_web/images/Rice, white, grain, raw/39.jpeg"^^xsd:anyURI .
+
+
+###  http://www.semanticweb.org/assaf/ontologies/food#Sorghum,_flour
+<http://www.semanticweb.org/assaf/ontologies/food#Sorghum,_flour> rdf:type owl:NamedIndividual ,
+                                                                           :Ingredient ;
+                                                                  :Name "Sorghum, flour" ;
+                                                                  :imageUrl "/home/beral/Bureau/INFO M1/semantic_web/images/Sorghum, flour/10.jpeg"^^xsd:anyURI .
+
+
+###  http://www.semanticweb.org/assaf/ontologies/food#Table_salt_iodized,_fine
+<http://www.semanticweb.org/assaf/ontologies/food#Table_salt_iodized,_fine> rdf:type owl:NamedIndividual ,
+                                                                                     :Ingredient ;
+                                                                            :Name "Table salt iodized, fine" ;
+                                                                            :imageUrl "/home/beral/Bureau/INFO M1/semantic_web/images/Table salt iodized, fine/16.jpeg"^^xsd:anyURI .
+
+
+###  http://www.semanticweb.org/assaf/ontologies/food#Toast_craker,_unsalted
+<http://www.semanticweb.org/assaf/ontologies/food#Toast_craker,_unsalted> rdf:type owl:NamedIndividual ,
+                                                                                   :Complement ;
+                                                                          :Name "Toast craker, unsalted" ;
+                                                                          :imageUrl "/home/beral/Bureau/INFO M1/semantic_web/images/Toast craker , salted, unsalted/1.jpeg"^^xsd:anyURI .
+
+
+###  http://www.semanticweb.org/assaf/ontologies/food#Toast_craker_,_salted
+<http://www.semanticweb.org/assaf/ontologies/food#Toast_craker_,_salted> rdf:type owl:NamedIndividual ,
+                                                                                  :Complement ;
+                                                                         :Name "Toast craker , salted" ;
+                                                                         :imageUrl "/home/beral/Bureau/INFO M1/semantic_web/images/Toast craker , salted/23.jpeg"^^xsd:anyURI .
+
+
+###  http://www.semanticweb.org/assaf/ontologies/food#Tomato-raw,_red
+<http://www.semanticweb.org/assaf/ontologies/food#Tomato-raw,_red> rdf:type owl:NamedIndividual ,
+                                                                            :Fruit ;
+                                                                   :Name "Tomato-raw, red" ;
+                                                                   :imageUrl "/home/beral/Bureau/INFO M1/semantic_web/images/Tomato-raw, red/8.jpeg"^^xsd:anyURI .
+
+
+###  http://www.semanticweb.org/assaf/ontologies/food#Tomato_paste_,_unsalted
+<http://www.semanticweb.org/assaf/ontologies/food#Tomato_paste_,_unsalted> rdf:type owl:NamedIndividual ,
+                                                                                    :ManufacturedFood ;
+                                                                           :Name "Tomato paste , unsalted" ;
+                                                                           :imageUrl "/home/beral/Bureau/INFO M1/semantic_web/images/Tomato paste , unsalted/15.jpeg"^^xsd:anyURI .
+
+
+###  http://www.semanticweb.org/assaf/ontologies/food#Tuna,_oil_canned
+<http://www.semanticweb.org/assaf/ontologies/food#Tuna,_oil_canned> rdf:type owl:NamedIndividual ,
+                                                                             :ManufacturedFood ;
+                                                                    :Name "Tuna, oil canned" ;
+                                                                    :imageUrl "/home/beral/Bureau/INFO M1/semantic_web/images/Tuna, oil canned/5.jpeg"^^xsd:anyURI .
+
+
+###  http://www.semanticweb.org/assaf/ontologies/food#Turkey_ham_,
+<http://www.semanticweb.org/assaf/ontologies/food#Turkey_ham_,> rdf:type owl:NamedIndividual ,
+                                                                         :ManufacturedFood ;
+                                                                :Name "Turkey ham ," ;
+                                                                :imageUrl "/home/beral/Bureau/INFO M1/semantic_web/images/Turkey ham ,/5.jpeg"^^xsd:anyURI .
+
+
+###  http://www.semanticweb.org/assaf/ontologies/food#Turkey_salami,_slice
+<http://www.semanticweb.org/assaf/ontologies/food#Turkey_salami,_slice> rdf:type owl:NamedIndividual ,
+                                                                                 :ManufacturedFood ;
+                                                                        :Name "Turkey salami, slice" ;
+                                                                        :imageUrl "/home/beral/Bureau/INFO M1/semantic_web/images/Turkey salami, slice/23.jpeg"^^xsd:anyURI .
+
+
+###  http://www.semanticweb.org/assaf/ontologies/food#Vermicelli,_uncooked
+<http://www.semanticweb.org/assaf/ontologies/food#Vermicelli,_uncooked> rdf:type owl:NamedIndividual ,
+                                                                                 :MainFood ;
+                                                                        :Name "Vermicelli, uncooked" ;
+                                                                        :imageUrl "/home/beral/Bureau/INFO M1/semantic_web/images/Vermicelli, uncooked/51.jpeg"^^xsd:anyURI .
+
+
+###  http://www.semanticweb.org/assaf/ontologies/food#Wheat,_dough,_deep_fried
+<http://www.semanticweb.org/assaf/ontologies/food#Wheat,_dough,_deep_fried> rdf:type owl:NamedIndividual ,
+                                                                                     :MainFood ;
+                                                                            :Name "Wheat, dough, deep fried" ;
+                                                                            :imageUrl "/home/beral/Bureau/INFO M1/semantic_web/images/Vermicelli, uncooked/51.jpeg"^^xsd:anyURI .
+
+
+###  http://www.semanticweb.org/assaf/ontologies/food#Wheat,_flour,_maida
+<http://www.semanticweb.org/assaf/ontologies/food#Wheat,_flour,_maida> rdf:type owl:NamedIndividual ,
+                                                                                :Ingredient ;
+                                                                       :Name "Wheat, flour, maida" ;
+                                                                       :imageUrl "/home/beral/Bureau/INFO M1/semantic_web/images/Wheat, flour, maida/5.jpeg"^^xsd:anyURI .
+
+
+###  http://www.semanticweb.org/assaf/ontologies/food#Wheat_flour,_72_extract
+<http://www.semanticweb.org/assaf/ontologies/food#Wheat_flour,_72_extract> rdf:type owl:NamedIndividual ,
+                                                                                    :Ingredient ;
+                                                                           :Name "Wheat flour, 72% extract" ;
+                                                                           :imageUrl "/home/beral/Bureau/INFO M1/semantic_web/images/Wheat flour, 72% extract/15.jpeg"^^xsd:anyURI .
+
+
+###  http://www.semanticweb.org/assaf/ontologies/food#Wheat_flour,_whole_grain
+<http://www.semanticweb.org/assaf/ontologies/food#Wheat_flour,_whole_grain> rdf:type owl:NamedIndividual ,
+                                                                                     :Ingredient ,
+                                                                                     :MainFood ;
+                                                                            :Name "Wheat flour, whole grain" ;
+                                                                            :imageUrl "/home/beral/Bureau/INFO M1/semantic_web/images/Wheat flour, whole grain/14.jpeg"^^xsd:anyURI .
+
+
+###  Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi
